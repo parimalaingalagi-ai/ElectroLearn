@@ -1,0 +1,679 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Learn electronics engineering, practise technical interviews and prepare for placements.">
+    <title>ElectroLearn | Electronics Engineering Hub</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="aptitude-test.css">
+    <link rel="stylesheet" href="aptitude-dashboard.css">
+    <link rel="stylesheet" href="circuits-dashboard.css">
+</head>
+<body>
+
+<div class="app-layout">
+<aside class="sidebar" id="dashboardSidebar">
+    <a class="logo" href="#home" aria-label="ElectroLearn home">Electro<span>Learn</span></a>
+    <p class="sidebar-label">LEARNING DASHBOARD</p>
+    <nav class="sidebar-nav" aria-label="Dashboard pages">
+        <a href="#home" data-page-link="home" aria-current="page"><span aria-hidden="true">⌂</span>Home</a>
+        <a href="#subjects" data-page-link="subjects"><span aria-hidden="true">▦</span>Subjects</a>
+        <a href="#interview" data-page-link="interview"><span aria-hidden="true">◇</span>Interview Prep</a>
+        <a href="#aptitude" data-page-link="aptitude"><span aria-hidden="true">✓</span>Aptitude</a>
+        <a href="#circuits" data-page-link="circuits"><span aria-hidden="true">⌁</span>Circuits</a>
+        <a href="#projects" data-page-link="projects"><span aria-hidden="true">⌘</span>Projects</a>
+    </nav>
+    <p class="sidebar-footer">Learn · Practise · Build</p>
+</aside>
+<button class="sidebar-backdrop" id="sidebarBackdrop" type="button" aria-label="Close navigation" hidden></button>
+
+<main class="app-main">
+<header class="app-toolbar" id="homeToolbar">
+    <button class="sidebar-toggle" id="sidebarToggle" type="button" aria-controls="dashboardSidebar" aria-expanded="true">
+        <span class="sidebar-toggle-icon" aria-hidden="true">☰</span>
+        <span class="sidebar-toggle-label">Collapse navigation</span>
+    </button>
+    <span class="app-toolbar-title">ElectroLearn Dashboard</span>
+</header>
+<section class="hero app-page" id="home" data-page-section="home">
+    <div class="hero-content">
+        <p class="eyebrow">LEARN • PRACTISE • BUILD</p>
+        <h1>Explore the world of <span>Electronics Engineering</span></h1>
+        <p class="hero-description">
+            Learn electronics from the basics, understand important concepts,
+            practise interview questions and develop skills for placements.
+        </p>
+
+        <div class="hero-buttons">
+            <a href="#subjects" class="btn primary">Explore Subjects →</a>
+            <a href="#interview" class="btn secondary">Prepare for Interviews</a>
+        </div>
+
+        <p class="hero-note">For EIE, ECE and electronics engineering students.</p>
+    </div>
+
+    <div class="circuit-art">
+        <div class="chip">
+            <span>μC</span>
+            <small>MICROCONTROLLER</small>
+        </div>
+        <div class="circuit-line line-one"></div>
+        <div class="circuit-line line-two"></div>
+        <div class="circuit-line line-three"></div>
+        <span class="circuit-label label-one">INPUT SIGNAL</span>
+        <span class="circuit-label label-two">OUTPUT SIGNAL</span>
+    </div>
+</section>
+
+<section class="dashboard-banner-wrap app-page" data-page-section="home" aria-label="Home dashboard image">
+    <figure class="dashboard-banner dashboard-banner--home">
+        <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1600&q=85" alt="Close-up of an electronics circuit board" loading="lazy">
+        <figcaption>Explore electronics, one concept at a time</figcaption>
+    </figure>
+</section>
+
+<section class="stats app-page" data-page-section="home" aria-label="Learning dashboard statistics">
+    <div><strong>17</strong><span>Learning areas</span></div>
+    <div><strong>50+</strong><span>Starter questions</span></div>
+    <div><strong>3</strong><span>Project ideas</span></div>
+    <div><strong>100%</strong><span>Beginner-friendly design</span></div>
+</section>
+
+<section class="section app-page" id="subjects" data-page-section="subjects" hidden>
+    <div class="section-heading">
+        <p class="eyebrow">YOUR BACHELOR'S LEARNING LIBRARY</p>
+        <h2>Study from Foundations to Advanced Concepts</h2>
+        <p>Follow each subject from prerequisites through core bachelor's concepts and advanced undergraduate study.</p>
+    </div>
+
+    <input
+        type="search"
+        id="searchInput"
+        class="search-box"
+        placeholder="Search subjects, for example Verilog or sensors..."
+        aria-label="Search subjects"
+    >
+
+    <div class="filters">
+        <button class="filter active" data-filter="All">All</button>
+        <button class="filter" data-filter="Core">Core Electronics</button>
+        <button class="filter" data-filter="Digital">Digital & Computing</button>
+        <button class="filter" data-filter="Embedded">Embedded & IoT</button>
+        <button class="filter" data-filter="Systems">Systems & Signals</button>
+    </div>
+
+    <div id="subjectGrid" class="subject-grid"></div>
+    <p id="noResults" hidden>No subjects found. Try another search.</p>
+    <p class="curriculum-sources">
+        Learning paths are structured with reference to the
+        <a href="https://www.aicte.gov.in/sites/default/files/Model_Curriculum/Final_ECE.pdf" target="_blank" rel="noopener noreferrer">AICTE Model Curriculum for Electronics and Communication Engineering</a>
+        and the
+        <a href="https://gate2026.iitg.ac.in/exam-papers-and-syllabus.html" target="_blank" rel="noopener noreferrer">official GATE 2026 papers and syllabus</a>.
+        Use your university's latest syllabus for course-specific requirements.
+    </p>
+</section>
+
+<section id="aptitudeLinks" class="section aptitude-section app-page" data-page-section="subjects" hidden>
+    <div class="section-heading">
+        <h2>Aptitude &amp; Practice Resources</h2>
+        <p>
+            Prepare with aptitude tests, technical MCQs, subject-wise practice
+            and interview questions.
+        </p>
+    </div>
+
+    <h3>General Placement Aptitude</h3>
+    <div id="aptitudeGeneralGrid" class="aptitude-grid"></div>
+
+    <h3>Practice by Engineering Subject</h3>
+    <div id="aptitudeSubjectGrid" class="aptitude-grid"></div>
+</section>
+
+<section class="feature-section app-page" id="interview" data-page-section="interview" hidden>
+    <div>
+        <p class="eyebrow">PLACEMENT PREPARATION</p>
+        <h2>Prepare for Technical Interviews</h2>
+        <p>
+            Practise technical fundamentals and professional, scenario-based questions. Explain your assumptions, diagnostics, trade-offs and validation plan as you would in an engineering interview.
+        </p>
+        <a href="#questionBank" class="btn primary">Open Professional Question Bank →</a>
+        <div class="interview-resources">
+            <h3>What strong technical answers include</h3>
+            <ul>
+                <li>Clarify the requirement and state assumptions before jumping to a solution.</li>
+                <li>Explain the principle, key equation or block diagram behind your decision.</li>
+                <li>Compare realistic trade-offs such as accuracy, cost, power, timing and complexity.</li>
+                <li>Describe how you would test normal, boundary and failure conditions.</li>
+            </ul>
+            <p>Practice prompts are original engineering scenarios, not official or leaked employer questions.</p>
+        </div>
+    </div>
+
+    <div class="daily-card">
+        <p class="eyebrow">QUESTION OF THE DAY</p>
+        <h3 id="dailyQuestion">What is the difference between a microprocessor and a microcontroller?</h3>
+        <button id="revealAnswer" class="text-btn">Reveal answer ↓</button>
+        <p id="dailyAnswer" hidden></p>
+    </div>
+</section>
+
+<section class="section app-page interview-library" data-page-section="interview">
+    <div class="section-heading">
+        <p class="eyebrow">ENGINEERING INTERVIEW WORKSHOP</p>
+        <h2>Professional Questions & Video Learning</h2>
+        <p>Practise explaining how you diagnose, choose, measure and verify—not just reciting definitions. Open a prompt to compare your approach with a sample answer.</p>
+    </div>
+
+    <div class="section-heading featured-question-heading">
+        <p class="eyebrow">START WITH THESE</p>
+        <h2>High-value engineering interview questions</h2>
+        <p>Try answering aloud first. Use the sample response to check whether your reasoning covers diagnosis and verification.</p>
+    </div>
+    <div id="featuredInterviewQuestions" class="featured-interview-grid"></div>
+
+    <div class="question-bank-resources interview-question-sites">
+        <h3>Glassdoor interview questions by subject</h3>
+        <p class="resource-disclaimer">Browse role-specific interview experiences. Some Glassdoor content may require an account or be limited by region.</p>
+        <div id="glassdoorSubjectGrid" class="glassdoor-subject-grid"></div>
+    </div>
+    <p class="resource-disclaimer">These links prioritize global/US/European search terms and exclude India-, Hindi- and placement-focused terms. YouTube results still vary by region and ranking, so check each creator and video before relying on an answer.</p>
+</section>
+
+<section class="section app-page" id="questionBank" data-page-section="questions" hidden>
+    <div class="section-heading">
+        <p class="eyebrow">TEST YOUR KNOWLEDGE</p>
+        <h2>Technical Interview Questions</h2>
+        <p>Select a subject for fundamentals and professional scenario questions. Open a question to review a model answer approach.</p>
+    </div>
+
+    <label for="questionSubject">Choose a subject:</label>
+    <select id="questionSubject" class="select-box"></select>
+    <div id="selectedGlassdoorResource" class="selected-glassdoor-resource"></div>
+
+    <p class="professional-question-note"><strong>Professional practice:</strong> scenario-based questions ask you to diagnose, justify trade-offs and validate a design. They are original study prompts, not leaked or official employer questions.</p>
+    <div id="questionList" class="question-list"></div>
+    <div class="question-bank-resources">
+        <h3>Glassdoor questions for the selected subject</h3>
+        <p class="resource-disclaimer">Use these as additional interview-experience references alongside the practice questions above.</p>
+        <div id="questionBankGlassdoorLink" class="selected-glassdoor-resource"></div>
+    </div>
+</section>
+
+<section class="section aptitude-section app-page" id="aptitude" data-page-section="aptitude" hidden>
+    <div class="section-heading">
+        <p class="eyebrow">PLACEMENT PRACTICE</p>
+        <h2>Aptitude Practice Quiz</h2>
+        <p>Take a fresh set of original practice questions each time. They follow the topics in the official GATE General Aptitude syllabus; they are not copied from official papers.</p>
+    </div>
+
+    <div class="quiz-card">
+        <p class="quiz-source">
+            Syllabus reference:
+            <a href="https://gate2026.iitg.ac.in/exam-papers-and-syllabus.html" target="_blank" rel="noopener noreferrer">GATE 2026 official papers and syllabus</a>
+        </p>
+        <div class="quiz-top">
+            <span id="quizTopic">TECHNICAL APTITUDE</span>
+            <span id="quizProgress">Question 1</span>
+        </div>
+
+        <h3 id="quizQuestion"></h3>
+        <div id="quizOptions" class="quiz-options"></div>
+
+        <button id="checkAnswer" class="btn primary">Check Answer</button>
+        <p id="quizFeedback" aria-live="polite"></p>
+        <p id="quizStatus" class="quiz-status" aria-live="polite"></p>
+        <button id="nextQuestion" class="text-btn" hidden>Next Question →</button>
+    </div>
+
+    <section id="eieAptitudeTest" class="eie-aptitude section">
+      <div class="eie-aptitude__heading">
+        <p class="eie-aptitude__eyebrow">ELECTROLEARN • PLACEMENT PREP</p>
+        <h2>EIE / ECE Technical Mock Test</h2>
+        <p>
+          Practise technical questions across electronics, instrumentation,
+          embedded systems and communication. These are company-style
+          practice questions, not claimed official company papers.
+        </p>
+      </div>
+
+      <div class="eie-aptitude__setup" id="eieTestSetup">
+        <label>Test length
+          <select id="eieTestLength">
+            <option value="10">10 questions · 10 minutes</option>
+            <option value="30">30 questions · 30 minutes</option>
+            <option value="50" selected>50 questions · 50 minutes</option>
+          </select>
+        </label>
+
+        <label>Difficulty
+          <select id="eieTestDifficulty">
+            <option value="all">Mixed — all levels</option>
+            <option value="Easy">Easy</option>
+            <option value="Medium">Medium</option>
+            <option value="Hard">Hard</option>
+          </select>
+        </label>
+
+        <label>Subject
+          <select id="eieTestSubject">
+            <option value="all">All technical subjects</option>
+          </select>
+        </label>
+
+        <div class="eie-aptitude__note" id="eieTestNote" aria-live="polite">
+          Recommended: Mixed difficulty + All technical subjects for a
+          realistic 50-question mock. Time limit: 1 minute per question.
+        </div>
+
+        <button type="button" class="eie-btn eie-btn--primary" id="eieStartTest">
+          Start mock test
+        </button>
+      </div>
+
+      <div id="eieTestArea" hidden>
+        <div class="eie-aptitude__status">
+          <div>
+            <span class="eie-muted">Question</span>
+            <strong id="eieQuestionCount">1 / 50</strong>
+          </div>
+          <div>
+            <span class="eie-muted">Time remaining</span>
+            <strong id="eieTimer" aria-live="polite">50:00</strong>
+          </div>
+          <div>
+            <span class="eie-muted">Answered</span>
+            <strong id="eieAnsweredCount">0 / 50</strong>
+          </div>
+        </div>
+
+        <div class="eie-aptitude__progress">
+          <div id="eieProgressBar"></div>
+        </div>
+
+        <div class="eie-aptitude__test-layout">
+          <div class="eie-aptitude__question-panel">
+            <div class="eie-aptitude__question-meta">
+              <span id="eieQuestionSubject"></span>
+              <span id="eieQuestionDifficulty"></span>
+            </div>
+
+            <h3 id="eieQuestionText"></h3>
+            <div id="eieOptions" class="eie-aptitude__options"></div>
+
+            <div class="eie-aptitude__nav">
+              <button type="button" class="eie-btn" id="eiePrevQuestion">
+                ← Previous
+              </button>
+              <button type="button" class="eie-btn" id="eieMarkReview">
+                ☆ Mark for review
+              </button>
+              <button type="button" class="eie-btn eie-btn--primary" id="eieNextQuestion">
+                Next →
+              </button>
+            </div>
+          </div>
+
+          <aside class="eie-aptitude__palette-panel">
+            <h3>Question navigator</h3>
+            <p class="eie-muted">Select a number to jump to a question.</p>
+
+            <div id="eieQuestionPalette" class="eie-aptitude__palette"></div>
+
+            <div class="eie-aptitude__legend">
+              <span><i class="eie-dot eie-dot--answered"></i> Answered</span>
+              <span><i class="eie-dot eie-dot--review"></i> Review</span>
+              <span><i class="eie-dot"></i> Unanswered</span>
+            </div>
+
+            <button type="button" class="eie-btn eie-btn--submit" id="eieSubmitTest">
+              Submit test
+            </button>
+          </aside>
+        </div>
+      </div>
+
+      <div id="eieTestResults" class="eie-aptitude__results" hidden>
+        <p class="eie-aptitude__eyebrow">TEST COMPLETED</p>
+        <h3>Your result</h3>
+
+        <div class="eie-aptitude__score-grid">
+          <div><span>Score</span><strong id="eieResultScore">0 / 50</strong></div>
+          <div><span>Accuracy</span><strong id="eieResultAccuracy">0%</strong></div>
+          <div><span>Correct</span><strong id="eieResultCorrect">0</strong></div>
+          <div><span>Unanswered</span><strong id="eieResultUnanswered">0</strong></div>
+          <div><span>Time used</span><strong id="eieResultTime">00:00</strong></div>
+        </div>
+
+        <p id="eieResultMessage"></p>
+
+        <div class="eie-aptitude__result-actions">
+          <button type="button" class="eie-btn eie-btn--primary" id="eieReviewAnswers">
+            Review answers &amp; explanations
+          </button>
+          <button type="button" class="eie-btn" id="eieRestartTest">
+            Try another test
+          </button>
+        </div>
+
+        <div id="eieAnswerReview" class="eie-aptitude__review" hidden></div>
+      </div>
+    </section>
+
+    <section id="aptitudeDashboard" class="aptitude-dashboard section">
+      <div class="dashboard-heading">
+        <p class="dashboard-eyebrow">YOUR PLACEMENT JOURNEY</p>
+        <h2>Mock Test Performance</h2>
+        <p>Track your accuracy, review previous attempts, and measure your progress.</p>
+        <p id="dashStorageMessage" class="dashboard-message" aria-live="polite" hidden></p>
+      </div>
+
+      <div class="dashboard-stats">
+        <article class="dashboard-stat">
+          <span>Total Attempts</span>
+          <strong id="dashAttempts">0</strong>
+        </article>
+
+        <article class="dashboard-stat">
+          <span>Average Accuracy</span>
+          <strong id="dashAverage">0%</strong>
+        </article>
+
+        <article class="dashboard-stat">
+          <span>Best Accuracy</span>
+          <strong id="dashBest">0%</strong>
+        </article>
+
+        <article class="dashboard-stat">
+          <span>Latest Accuracy</span>
+          <strong id="dashLatest">0%</strong>
+        </article>
+      </div>
+
+      <div class="dashboard-panel">
+        <div class="dashboard-panel-heading">
+          <div>
+            <h3>Accuracy Over Time</h3>
+            <p>Each bar represents a completed mock test.</p>
+          </div>
+        </div>
+        <div id="dashChart" class="accuracy-chart" role="img" aria-label="Mock test accuracy chart">
+          <p class="dashboard-empty">Complete your first mock test to see your progress.</p>
+        </div>
+      </div>
+
+      <div class="dashboard-panel">
+        <h3>Attempt History</h3>
+        <div class="dashboard-table-wrap">
+          <table class="attempt-table">
+            <thead>
+              <tr>
+                <th>Attempt</th>
+                <th>Date</th>
+                <th>Subject</th>
+                <th>Score</th>
+                <th>Accuracy</th>
+              </tr>
+            </thead>
+            <tbody id="dashHistory">
+              <tr>
+                <td colspan="5" class="dashboard-empty">No mock tests completed yet.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <button type="button" id="dashClearHistory" class="dashboard-clear">
+          Clear Attempt History
+        </button>
+      </div>
+    </section>
+</section>
+
+<section class="section app-page" id="projects" data-page-section="projects" hidden>
+    <div class="section-heading">
+        <p class="eyebrow">PRACTICAL LEARNING</p>
+        <h2>Beginner Project Ideas</h2>
+        <p>Use these projects to connect theory with practical engineering skills.</p>
+    </div>
+
+    <section class="project-generator" aria-labelledby="projectGeneratorHeading">
+        <div class="project-generator-heading">
+            <div>
+                <p class="eyebrow">PERSONALISED PROJECT FINDER</p>
+                <h3 id="projectGeneratorHeading">Find a project that fits your interests</h3>
+                <p>Describe a subject or goal to get locally generated project ideas and topic-specific links to tutorials, videos and open-source examples.</p>
+            </div>
+        </div>
+        <form id="projectGeneratorForm">
+            <label class="project-prompt-label" for="projectPrompt">What would you like to build or learn?
+                <input id="projectPrompt" name="prompt" type="search" maxlength="180" placeholder="Try: sensor dashboard, control systems, civil engineering...">
+            </label>
+            <div class="project-generator-filters">
+                <label for="projectBranch">Branch
+                    <select id="projectBranch" name="branch">
+                        <option value="eie">Electronics / EIE / ECE</option>
+                        <option value="civil">Civil engineering</option>
+                        <option value="both">Cross-disciplinary</option>
+                        <option value="other">Other engineering</option>
+                    </select>
+                </label>
+                <label for="projectSubject">Subject
+                    <select id="projectSubject" name="subject">
+                        <option value="auto">Auto-detect from prompt</option>
+                        <option value="basic">Basic Electronics</option>
+                        <option value="analog">Analog Electronic Circuits</option>
+                        <option value="digital">Digital Design (DD)</option>
+                        <option value="verilog">Verilog HDL</option>
+                        <option value="dsp">Digital Signal Processing</option>
+                        <option value="control">Control Systems</option>
+                        <option value="embedded">Embedded Controllers</option>
+                        <option value="networks">Computer Communication Networks</option>
+                        <option value="iot">Internet of Things (IoT)</option>
+                        <option value="sensors">Sensors &amp; Instrumentation</option>
+                        <option value="semiconductor">Semiconductor Devices</option>
+                        <option value="math">Engineering Mathematics &amp; Aptitude</option>
+                        <option value="automotive">Automotive &amp; Industrial Electronics</option>
+                        <option value="communications">Communication Systems</option>
+                        <option value="emf">Electromagnetic Fields</option>
+                        <option value="power">Power Electronics</option>
+                        <option value="vlsi">VLSI Design</option>
+                    </select>
+                </label>
+                <label for="projectType">Project type
+                    <select id="projectType" name="type">
+                        <option value="any">Any type</option>
+                        <option value="hardware">Hardware</option>
+                        <option value="software">Software</option>
+                        <option value="hybrid">Hardware + software</option>
+                    </select>
+                </label>
+                <label for="projectBudget">Budget
+                    <select id="projectBudget" name="budget">
+                        <option value="any">Any budget</option>
+                        <option value="low">Free / under ₹500</option>
+                        <option value="medium">Up to ₹2,000</option>
+                        <option value="high">Flexible budget</option>
+                        <option value="flexible">Show all budgets</option>
+                    </select>
+                </label>
+                <label for="projectGoal">Goal
+                    <select id="projectGoal" name="goal">
+                        <option value="any">Any goal</option>
+                        <option value="mini">Mini project</option>
+                        <option value="hackathon">Hackathon</option>
+                        <option value="scholarship">Scholarship / portfolio</option>
+                        <option value="placement">Placement preparation</option>
+                    </select>
+                </label>
+            </div>
+            <div class="project-generator-actions">
+                <button class="btn primary" type="submit">Find project ideas</button>
+                <button class="btn secondary" id="projectReset" type="button">Reset filters</button>
+            </div>
+        </form>
+        <div class="project-generator-results" aria-live="polite">
+            <div class="project-generator-result-heading">
+                <h3 id="projectResultsTitle">Starter project ideas</h3>
+                <span id="projectResultCount"></span>
+            </div>
+            <p id="projectNoResults" class="project-generator-message" hidden>No close matches found. Here are some starter ideas you can adapt.</p>
+            <div id="projectResults" class="project-grid"></div>
+            <section id="projectResearchResults" class="project-research-results" aria-labelledby="projectResearchHeading" hidden>
+                <div>
+                    <p class="eyebrow">EXPLORE ONLINE RESOURCES</p>
+                    <h3 id="projectResearchHeading">Tutorials, videos and open-source examples</h3>
+                    <p id="projectResearchNote">These topic-specific searches open results from the selected sites. Project ideas above are generated locally; they are not AI or live web-search results.</p>
+                </div>
+                <div id="projectResearchLinks" class="project-research-links"></div>
+            </section>
+        </div>
+    </section>
+
+    <div class="project-grid">
+        <article class="project-card">
+            <span class="project-icon">◉</span>
+            <p class="level">BEGINNER</p>
+            <h3>Arduino Sensor Monitor</h3>
+            <p>Read temperature or light values from a sensor and display the readings on your computer.</p>
+            <div class="tags"><span>Arduino</span><span>Sensors</span><span>C/C++</span></div>
+        </article>
+
+        <article class="project-card">
+            <span class="project-icon">〰</span>
+            <p class="level">BEGINNER</p>
+            <h3>Op-Amp Circuit Simulator</h3>
+            <p>Build and simulate an inverting amplifier. Calculate its gain and compare your result.</p>
+            <div class="tags"><span>Analog</span><span>Op-Amp</span><span>Circuits</span></div>
+        </article>
+
+        <article class="project-card">
+            <span class="project-icon">⌘</span>
+            <p class="level">INTERMEDIATE</p>
+            <h3>IoT Monitoring System</h3>
+            <p>Connect a sensor to an ESP32 and send readings to a simple dashboard.</p>
+            <div class="tags"><span>IoT</span><span>ESP32</span><span>Networking</span></div>
+        </article>
+    </div>
+</section>
+
+<section class="roadmap app-page" data-page-section="projects" hidden>
+    <p class="eyebrow">YOUR LEARNING ROADMAP</p>
+    <h2>How to study each subject</h2>
+
+    <div class="roadmap-grid">
+        <div><strong>01</strong><h3>Learn the basics</h3><p>Understand definitions, diagrams and units.</p></div>
+        <div><strong>02</strong><h3>Study concepts</h3><p>Learn formulas and solve numerical problems.</p></div>
+        <div><strong>03</strong><h3>Practise questions</h3><p>Test your knowledge with MCQs and interviews.</p></div>
+        <div><strong>04</strong><h3>Build projects</h3><p>Apply your knowledge and publish your work on GitHub.</p></div>
+    </div>
+</section>
+
+<section class="app-page" id="circuits" data-page-section="circuits" hidden>
+    <section id="elCircuits" class="elc">
+      <header class="elc-hero">
+        <div><p class="elc-kicker">EIE / ECE LEARNING LAB</p><h2>Circuits Dashboard</h2>
+        <p>Explore readable circuit schematics, component functions, worked concepts and quizzes across all 17 learning subjects.</p></div>
+        <span class="elc-chip">Beginner → Advanced</span>
+      </header>
+      <div class="elc-stats">
+        <article><span>Circuits</span><strong id="elcTotal">0</strong></article>
+        <article><span>Completed</span><strong id="elcDone">0</strong></article>
+        <article><span>Progress</span><strong id="elcPercent">0%</strong></article>
+        <article><span>Quiz accuracy</span><strong id="elcQuizAcc">—</strong></article>
+      </div>
+      <div class="elc-progress"><div><span>Learning progress</span><b id="elcProgressText">0 of 0</b></div><div class="elc-track"><i id="elcProgressBar"></i></div></div>
+      <div class="elc-filters">
+        <label>Search circuits<input id="elcSearch" type="search" placeholder="Try op-amp, rectifier, sensor…"></label>
+        <label>Difficulty<select id="elcLevel"><option value="all">All levels</option><option>Beginner</option><option>Intermediate</option><option>Advanced</option></select></label>
+        <label>Category<select id="elcCategory"><option value="all">All categories</option></select></label>
+        <label>Subject<select id="elcSubject"><option value="all">All subjects</option></select></label>
+        <label>Status<select id="elcStatus"><option value="all">All circuits</option><option value="todo">Not completed</option><option value="done">Completed</option></select></label>
+      </div>
+      <div class="elc-subject-tabs-wrap">
+        <h3>Browse by subject</h3>
+        <div id="elcSubjectTabs" class="elc-subject-tabs" role="group" aria-label="Filter circuits by subject"></div>
+      </div>
+      <div class="elc-listhead"><div><h3>Explore circuits</h3><p id="elcCount">Loading…</p></div><button id="elcReset" type="button" class="elc-secondary">Reset filters</button></div>
+      <div id="elcGrid" class="elc-grid"></div>
+      <section class="elc-resources" aria-labelledby="elcResourcesTitle">
+        <div class="elc-resources-heading">
+          <div><p class="elc-kicker">KEEP LEARNING</p><h3 id="elcResourcesTitle">Further Engineering Resources</h3></div>
+          <span id="elcResourceCount" class="elc-chip" aria-live="polite"></span>
+        </div>
+        <p id="elcResourceIntro" class="elc-resource-intro"></p>
+        <div id="elcResourceList" class="elc-resource-list"></div>
+      </section>
+      <section id="elcDetail" class="elc-detail" hidden>
+        <div class="elc-detail-head"><div><small id="elcMeta"></small><h3 id="elcTitle"></h3></div><button type="button" id="elcClose" class="elc-close" aria-label="Close details">×</button></div>
+        <div id="elcDiagram" class="elc-diagram"></div>
+        <p class="elc-note">Conceptual educational diagram only. Verify component ratings and datasheets before building hardware.</p>
+        <div class="elc-info-grid"><article><h4>Components</h4><ul id="elcParts"></ul></article><article><h4>How it works</h4><p id="elcWorking"></p></article><article><h4>Applications</h4><ul id="elcUses"></ul></article></div>
+        <div class="elc-quiz"><p class="elc-kicker">QUICK CHECK</p><h4 id="elcQuestion"></h4><div id="elcOptions" class="elc-options"></div><p id="elcFeedback" role="status"></p></div>
+        <label class="elc-notes">My notes <small>(saved in this browser)</small><textarea id="elcNotes" rows="3" placeholder="Write a formula, doubt, or reminder…"></textarea></label>
+        <button type="button" id="elcComplete" class="elc-primary">Mark as completed</button>
+      </section>
+      <p class="elc-footnote">Your progress is saved locally in this browser. It does not automatically sync across devices.</p>
+    </section>
+</section>
+
+<!-- ALL-SUBJECT INTERVIEW VIDEO LIBRARY -->
+<section class="video-library app-page" id="interviewVideos" data-page-section="interview">
+    <div class="video-heading">
+        <p class="video-label">ELECTROLEARN VIDEO HUB</p>
+        <h2>Interview Videos for Every Subject</h2>
+        <p>
+            Find international technical interview videos for every learning area.
+            Search by subject, then choose videos from reliable engineering channels.
+        </p>
+    </div>
+
+    <div class="video-search-box">
+        <input
+            type="search"
+            id="videoSearch"
+            placeholder="Search subjects..."
+            aria-label="Search interview video subjects"
+        >
+    </div>
+
+    <div class="video-grid video-subject-grid" id="videoSubjectGrid">
+        <!-- Subject video cards are added by script.js -->
+    </div>
+    <p class="video-note" id="videoNoResults" hidden>
+        No matching subjects found. Try another search.
+    </p>
+
+    <p class="video-note">
+        Videos open on YouTube. Searches prioritize global/US/UK/European technical interviews and
+        exclude India-, Hindi- and placement-focused results; YouTube rankings may still vary by region.
+    </p>
+</section>
+
+<footer>
+    <a class="logo" href="#home">Electro<span>Learn</span></a>
+    <div class="footer-info">
+        <p>A learning platform for electronics engineering students.</p>
+        <p class="developer-credit">Developed and published by<br><strong>PARIMALA M I</strong></p>
+        <p>© <span id="year"></span> ElectroLearn</p>
+    </div>
+</footer>
+</main>
+</div>
+
+<div id="subjectModal" class="modal" hidden>
+    <div class="modal-content">
+        <button id="closeModal" class="close-btn" aria-label="Close">×</button>
+        <div id="modalBody"></div>
+    </div>
+</div>
+
+<script src="project-generator.js" defer></script>
+<script src="aptitude-test.js" defer></script>
+<script src="aptitude-dashboard.js" defer></script>
+<script src="circuits-dashboard.js" defer></script>
+<script src="script.js" defer></script>
+</body>
+</html>
+ 
